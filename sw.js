@@ -1,11 +1,11 @@
-let staticCacheName = 'restaurant-reviews';
-let contentImgsCache = 'restaurant-image-cache';
-let allCaches = [
+const staticCacheName = 'restaurant-reviews';
+const contentImgsCache = 'restaurant-image-cache';
+const allCaches = [
   staticCacheName,
   contentImgsCache
 ];
 
-let imageURLsToCache = [
+const imageURLsToCache = [
   '/img/1.jpg',
   '/img/2.jpg',
   '/img/3.jpg',
@@ -18,7 +18,7 @@ let imageURLsToCache = [
   '/img/10.jpg',
 ]
 
-let staticURLsToCache = [
+const staticURLsToCache = [
   '/js/main.js',
   '/js/dbhelper.js',
   '/js/restaurant_info.js',

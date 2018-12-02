@@ -34,6 +34,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(openCaches());
 });
 
+
 function openCaches() {
   caches.open(contentImgsCache).then(function(cache) {
     return cache.addAll(imageURLsToCache);
@@ -43,17 +44,18 @@ function openCaches() {
   })
 }
 
+
 self.addEventListener('fetch', function(event) {
   let requestUrl = new URL(event.request.url);
   if (requestUrl.pathname.startsWith('/img/')) {
-    return serveFromCache(event, contentImgsCache)
+    return serve(event, contentImgsCache)
   } else {
-    return serveFromCache(event, staticCacheName)
+    return serve(event, staticCacheName)
   }
 })
 
 
-function serveImage(event, cacheName) {
+function serve(event, cacheName) {
   event.respondWith(
     caches.match(event.request).then(function(response) {
       if (response) {
